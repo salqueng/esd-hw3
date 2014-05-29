@@ -1,0 +1,249 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+
+entity seg_test is
+	port(
+		clk			: in std_logic;
+		nreset		: in std_logic;
+		seg_com		: out std_logic_vector(5 downto 0);
+		seg_disp	: out std_logic_vector(7 downto 0);
+		
+		cnt_1		: out std_logic_vector(7 downto 0);
+		cnt_10		: out std_logic_vector(7 downto 0);
+		sec_1		: out std_logic_vector(7 downto 0);
+		sec_10		: out std_logic_vector(7 downto 0);
+		min_1		: out std_logic_vector(7 downto 0);
+		min_10		: out std_logic_vector(7 downto 0);
+		hour_1		: out std_logic_vector(7 downto 0);
+		hour_10		: out std_logic_vector(7 downto 0)
+	);
+end seg_test;
+
+architecture hb of seg_test is
+
+	function conv_int(cnt : integer range 0 to 9) return std_logic_vector is
+		variable seg_decode : std_logic_vector(6 downto 0);
+	begin
+		case cnt is
+			when 0 => seg_decode := "1111110";		--	"0111111"; -- "11111100"; 
+			when 1 => seg_decode := "0110000";		--	"0000110"; -- "01100001";
+			when 2 => seg_decode := "1101101";		--	"1011011"; -- "11011010";
+			when 3 => seg_decode := "1111001";		--	"1001111"; -- "11110011";
+			when 4 => seg_decode := "0110011";		--	"1100110"; -- "01100110";
+			when 5 => seg_decode := "1011011";		--	"1101101"; -- "10110111";
+			when 6 => seg_decode := "1011111";		--	"1111101"; -- "10111110";
+			when 7 => seg_decode := "1110000";		--	"0000111"; -- "11100001";
+			when 8 => seg_decode := "1111111";		--	"1111111"; -- "11111110";
+			when 9 => seg_decode := "1111011";		--	"1101111"; -- "11110111";
+			when others => seg_decode := "0000000";
+		end case;
+		return (seg_decode);
+	end conv_int;
+	
+	function conv_lcd(cnt : integer range 0 to 9) return std_logic_vector is
+		variable lcd_decode : std_logic_vector(7 downto 0);
+	begin
+		case cnt is
+			when 0 => lcd_decode := "00110000";		--	"0111111"; -- "11111100"; 
+			when 1 => lcd_decode := "00110001";		--	"0000110"; -- "01100001";
+			when 2 => lcd_decode := "00110010";		--	"1011011"; -- "11011010";
+			when 3 => lcd_decode := "00110011";		--	"1001111"; -- "11110011";
+			when 4 => lcd_decode := "00110100";		--	"1100110"; -- "01100110";
+			when 5 => lcd_decode := "00110101";		--	"1101101"; -- "10110111";
+			when 6 => lcd_decode := "00110110";		--	"1111101"; -- "10111110";
+			when 7 => lcd_decode := "00110111";		--	"0000111"; -- "11100001";
+			when 8 => lcd_decode := "00111000";		--	"1111111"; -- "11111110";
+			when 9 => lcd_decode := "00111001";		--	"1101111"; -- "11110111";
+			when others => lcd_decode := "00000000";
+		end case;
+		return (lcd_decode);
+	end conv_lcd;
+	
+	signal sec_a,sec_b,sec_c,sec_d,sec_e,sec_f,sec_g, sec_h	: integer range 0 to 9;
+	signal cnt			: integer range 0 to 9;
+	signal cnt_segcon	: integer range 0 to 5;
+
+begin
+
+cnt_1 <= conv_lcd(sec_a);
+cnt_10 <= conv_lcd(sec_b);
+sec_1 <= conv_lcd(sec_c);
+sec_10 <= conv_lcd(sec_d);
+min_1 <= conv_lcd(sec_e);
+min_10 <= conv_lcd(sec_f);
+hour_1 <= conv_lcd(sec_g);
+hour_10 <= conv_lcd(sec_h);
+
+process(nreset, clk)
+begin
+	if nreset = '0' then
+		cnt <= 0;
+	elsif clk'event and clk = '1' then
+		if cnt = 9 then
+			cnt <= 0;
+		else
+			cnt <= cnt + 1;
+		end if;
+	end if;
+end process; 
+
+process(nreset, clk)
+begin
+	if nreset = '0' then
+		sec_a <= 0;
+	elsif clk'event and clk = '1' then
+		if  cnt = 9 then
+			if sec_a = 9 then
+				sec_a <= 0;
+			else
+				sec_a <= sec_a + 1;
+			end if;
+		end if;
+	end if;
+end process;
+
+process(nreset, clk)
+begin
+	if nreset = '0' then
+		sec_b <= 0;
+	elsif clk'event and clk='1' then
+		if sec_a = 9 and cnt = 9 then
+			if sec_b = 9 then
+				sec_b <= 0;
+			else
+				sec_b <= sec_b + 1;
+			end if;
+		end if;
+	end if;
+end process;
+
+process(nreset, clk)
+begin
+	if nreset = '0' then
+		sec_c <= 0;
+	elsif clk'event and clk='1' then
+		if sec_a = 9 and sec_b = 9 and cnt = 9 then
+			if sec_c = 9 then
+				sec_c <= 0;
+			else
+				sec_c <= sec_c + 1;
+			end if;
+		end if;
+	end if;
+end process;
+
+process(nreset, clk)
+begin
+	if nreset = '0' then
+		sec_d <= 0;
+	elsif clk'event and clk='1' then
+		if sec_a = 9 and sec_b = 9 and sec_c = 9 and cnt = 9 then
+			if sec_d = 5 then
+				sec_d <= 0;
+			else
+				sec_d <= sec_d + 1;
+			end if;
+		end if;
+	end if;
+end process;
+
+process(nreset, clk)
+begin
+	if nreset = '0' then
+		sec_e <= 0;
+	elsif clk'event and clk='1' then
+		if sec_a = 9 and sec_b = 9 and sec_c = 9 and sec_d = 5 and cnt = 9 then
+			if sec_e = 9 then
+				sec_e <= 0;
+			else
+				sec_e <= sec_e + 1;
+			end if;
+		end if;
+	end if;
+end process;
+
+process(nreset, clk)
+begin
+	if nreset = '0' then
+		sec_f <= 0;
+	elsif clk'event and clk='1' then
+		if sec_a = 9 and sec_b = 9 and sec_c = 9 and sec_d = 5 and sec_e = 9 and cnt = 9 then
+			if sec_f = 5 then
+				sec_f <= 0;
+			else
+				sec_f <= sec_f + 1;
+			end if;
+		end if;
+	end if;
+end process;
+
+process(nreset, clk)
+begin
+	if nreset = '0' then
+		sec_g <= 0;
+	elsif clk'event and clk = '1' then
+		if sec_a = 9 and sec_b = 9 and sec_c = 9 and sec_d = 5 and sec_e = 9 and sec_f = 5 and cnt = 9 then
+			if sec_g = 9 then
+				sec_g <= 0;
+			else
+				sec_g <= sec_g + 1;
+			end if;
+		end if;
+	end if;
+end process;
+
+process(nreset, clk)
+begin
+	if nreset = '0' then
+		sec_h <= 0;
+	elsif clk'event and clk = '1' then
+		if sec_a = 9 and sec_b = 9 and sec_c = 9 and sec_d = 5 and sec_e = 9 and sec_f = 5 and sec_g = 9 and cnt = 9 then
+			if sec_h = 2 then
+				sec_h <= 0;
+			else
+				sec_h <= sec_h + 1;
+			end if;
+		end if;
+	end if;
+end process;
+
+process(nreset, clk)
+begin
+	if nreset = '0' then
+		seg_com <= (others => '1');
+		seg_disp <= (others => '0');
+	elsif clk'event and clk = '1' then
+		if cnt_segcon = 5 then
+			cnt_segcon <= 0;
+		else
+			cnt_segcon <= cnt_segcon + 1;
+		end if;
+	
+		case cnt_segcon is
+			when 0 =>
+				seg_com <= "011111";
+				seg_disp <= conv_int(sec_a) & '1';
+			when 1 =>
+				seg_com <= "101111";
+				seg_disp <= conv_int(sec_b) & '0';
+			when 2 =>
+				seg_com <= "110111";
+				seg_disp <= conv_int(sec_c) & '1';
+			when 3 =>
+				seg_com <= "111011";
+				seg_disp <= conv_int(sec_d) & '0';				
+			when 4 =>
+				seg_com <= "111101";
+				seg_disp <= conv_int(sec_e) & '1';				
+			when 5 =>
+				seg_com <= "111110";
+				seg_disp <= conv_int(sec_f) & '0';				
+			when others =>
+				seg_com <= "111111";
+				seg_disp <= "00000000";
+		end case;
+	end if;
+end process;
+
+end hb;

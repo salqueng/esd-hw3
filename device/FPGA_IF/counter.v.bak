@@ -1,0 +1,19 @@
+module counter_demo (clk, nreset,data_from_android,data_to_seg_demo);
+	input clk, nreset, data_from_android;
+	output reg [15:0] data_to_seg_demo;
+	
+	reg[15:0] data = 16'hffff;
+	
+	always @(clk posedge or nreset negedge) begin
+		if(nreset == 1'b1) begin
+			data_to_seg_demo <= 16'b0;
+		end else begin
+			if(data == 16'b0) begin
+				data_to_seg_demo <= 16'b0;
+			end else begin
+				data_to_seg_demo <= data;
+				data <= data-1;
+			end
+		end
+	end
+endmodule

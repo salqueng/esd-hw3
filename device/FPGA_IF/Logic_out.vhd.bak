@@ -1,0 +1,22 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+
+entity Logic_out is
+port (
+		High	: out std_logic;
+		Low		: out std_logic;
+		Z		: out std_logic	
+);
+end Logic_out;
+
+architecture a of Logic_out is
+
+begin
+
+	High	<= '1';
+	Low		<= '0';
+	Z		<= 'Z';
+
+end a;
+		

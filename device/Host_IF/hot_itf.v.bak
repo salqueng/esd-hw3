@@ -1,0 +1,34 @@
+module host_itf (
+	clk, nRESET, FPGA_nRST, HOST_nOE, HOST_nWE, HOST_nCS, HOST_ADD, HDI, HDO,
+	CLCD_RS, CLCD_RW, CLCD_E, CLCD_DQ, LED_D, SEG_COM, SEG_Data, DOT_SCAN, DOT_DATA,
+	Piezo, DIP_D, PUSH_RD, PUSH_LD, PUSH_SW,
+	clk_3k, host_sel, sw);
+	
+	input clk, nRESET, FPGA_nRST, HOST_nOE, HOST_nWE, HOST_nCS;
+	input [20:0] HOST_ADD;
+	input [15:0] HDI;
+	output [15:0] HDO;
+	
+	output CLCD_RS, CLCD_RW, CLCD_E;
+	output [7:0] CLCD_DQ;
+	output [7:0] LED_D;
+	output [5:0] SEG_COM;
+	output [7:0] SEG_Data;
+	output [9:0] DOT_SCAN;
+	output [6:0] DOT_DATA;
+	output Piezo ;
+	output [15:0] DIP_D;
+	input  [3:0] PUSH_RD;
+	output [3:0] PUSH_LD;
+	input  [3:0] PUSH_SW;
+	
+	input clk_3k, sw;
+	output host_sel
+	
+	wire [15:0] x8800_0010, x8800_0020, x8800_0030, x8800_0032, x8800_0040, x8800_0042, 
+	            x8800_0050, x8800_0062, x8800_0070, x8800_0072, x8800_0080, x8800_0090,
+					x8800_0092, x8800_00A0, x8800_00B0, x8800_00C0, x8800_00D0, x8800_00E0,
+					x8800_00F0;
+	wire [1:0] reg_sw;
+	wire V_SEL;
+	integer clk_cnt;

@@ -1,0 +1,252 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2009 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II
+# Version 9.1 Build 222 10/21/2009 SJ Full Version
+# Date created = 17:24:51  September 06, 2010
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		M3_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone II"
+set_global_assignment -name DEVICE EP2C8F256C8
+set_global_assignment -name TOP_LEVEL_ENTITY M3
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 9.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:24:51  SEPTEMBER 06, 2010"
+set_global_assignment -name LAST_QUARTUS_VERSION "12.1 SP1"
+set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_blast_fpga
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_location_assignment PIN_L7 -to dip_sw[0]
+set_location_assignment PIN_K7 -to dip_sw[1]
+set_location_assignment PIN_T8 -to dip_sw[2]
+set_location_assignment PIN_R8 -to dip_sw[3]
+set_location_assignment PIN_N8 -to dip_sw[4]
+set_location_assignment PIN_L8 -to dip_sw[5]
+set_location_assignment PIN_T9 -to dip_sw[6]
+set_location_assignment PIN_R9 -to dip_sw[7]
+set_location_assignment PIN_N9 -to dip_sw[8]
+set_location_assignment PIN_L9 -to dip_sw[9]
+set_location_assignment PIN_T10 -to dip_sw[10]
+set_location_assignment PIN_R10 -to dip_sw[11]
+set_location_assignment PIN_N10 -to dip_sw[12]
+set_location_assignment PIN_L10 -to dip_sw[13]
+set_location_assignment PIN_K10 -to dip_sw[14]
+set_location_assignment PIN_T11 -to dip_sw[15]
+set_location_assignment PIN_T4 -to dot_d[0]
+set_location_assignment PIN_R4 -to dot_d[1]
+set_location_assignment PIN_P4 -to dot_d[2]
+set_location_assignment PIN_T5 -to dot_d[3]
+set_location_assignment PIN_R5 -to dot_d[4]
+set_location_assignment PIN_P5 -to dot_d[5]
+set_location_assignment PIN_T6 -to dot_d[6]
+set_location_assignment PIN_C4 -to dot_scan[0]
+set_location_assignment PIN_A3 -to dot_scan[1]
+set_location_assignment PIN_B3 -to dot_scan[2]
+set_location_assignment PIN_T3 -to dot_scan[3]
+set_location_assignment PIN_R3 -to dot_scan[4]
+set_location_assignment PIN_A5 -to dot_scan[5]
+set_location_assignment PIN_B5 -to dot_scan[6]
+set_location_assignment PIN_C5 -to dot_scan[7]
+set_location_assignment PIN_A4 -to dot_scan[8]
+set_location_assignment PIN_B4 -to dot_scan[9]
+set_location_assignment PIN_L11 -to key_data[0]
+set_location_assignment PIN_K11 -to key_data[1]
+set_location_assignment PIN_T12 -to key_data[2]
+set_location_assignment PIN_R12 -to key_data[3]
+set_location_assignment PIN_R11 -to key_scan[0]
+set_location_assignment PIN_P11 -to key_scan[1]
+set_location_assignment PIN_N11 -to key_scan[2]
+set_location_assignment PIN_M11 -to key_scan[3]
+set_location_assignment PIN_A11 -to lcd_data[0]
+set_location_assignment PIN_B11 -to lcd_data[1]
+set_location_assignment PIN_C11 -to lcd_data[2]
+set_location_assignment PIN_D11 -to lcd_data[3]
+set_location_assignment PIN_G11 -to lcd_data[4]
+set_location_assignment PIN_A10 -to lcd_data[5]
+set_location_assignment PIN_B10 -to lcd_data[6]
+set_location_assignment PIN_D10 -to lcd_data[7]
+set_location_assignment PIN_C12 -to lcd_e
+set_location_assignment PIN_A12 -to lcd_rs
+set_location_assignment PIN_B12 -to lcd_rw
+set_location_assignment PIN_G7 -to led[0]
+set_location_assignment PIN_A6 -to led[1]
+set_location_assignment PIN_B6 -to led[2]
+set_location_assignment PIN_C6 -to led[3]
+set_location_assignment PIN_D6 -to led[4]
+set_location_assignment PIN_E6 -to led[5]
+set_location_assignment PIN_F6 -to led[6]
+set_location_assignment PIN_G6 -to led[7]
+set_location_assignment PIN_N7 -to piezo
+set_location_assignment PIN_F7 -to seg_com[0]
+set_location_assignment PIN_B8 -to seg_com[1]
+set_location_assignment PIN_F9 -to seg_com[2]
+set_location_assignment PIN_A9 -to seg_com[3]
+set_location_assignment PIN_G10 -to seg_com[4]
+set_location_assignment PIN_F10 -to seg_com[5]
+set_location_assignment PIN_D8 -to seg_disp[0]
+set_location_assignment PIN_D9 -to seg_disp[1]
+set_location_assignment PIN_F8 -to seg_disp[2]
+set_location_assignment PIN_D7 -to seg_disp[3]
+set_location_assignment PIN_A7 -to seg_disp[4]
+set_location_assignment PIN_A8 -to seg_disp[5]
+set_location_assignment PIN_B9 -to seg_disp[6]
+set_location_assignment PIN_B7 -to seg_disp[7]
+set_location_assignment PIN_P12 -to sel_button[0]
+set_location_assignment PIN_T13 -to sel_button[1]
+set_location_assignment PIN_R13 -to sel_button[2]
+set_location_assignment PIN_P13 -to sel_button[3]
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+set_location_assignment PIN_H2 -to FPGA_CLK
+set_location_assignment PIN_J1 -to M_nRESET -disable
+set_location_assignment PIN_J2 -to XCLKOUT -disable
+set_location_assignment PIN_J15 -to XM0OEN
+set_location_assignment PIN_H16 -to XM0WEN
+set_location_assignment PIN_H15 -to XnRESET
+set_location_assignment PIN_R7 -to nFPGA_RESET
+set_location_assignment PIN_C1 -to SRAM_ADDR[0] -disable
+set_location_assignment PIN_D1 -to SRAM_ADDR[1] -disable
+set_location_assignment PIN_D3 -to SRAM_ADDR[2] -disable
+set_location_assignment PIN_D5 -to SRAM_ADDR[3] -disable
+set_location_assignment PIN_E1 -to SRAM_ADDR[4] -disable
+set_location_assignment PIN_M2 -to SRAM_ADDR[5] -disable
+set_location_assignment PIN_M4 -to SRAM_ADDR[6] -disable
+set_location_assignment PIN_N2 -to SRAM_ADDR[7] -disable
+set_location_assignment PIN_N4 -to SRAM_ADDR[8] -disable
+set_location_assignment PIN_P2 -to SRAM_ADDR[9] -disable
+set_location_assignment PIN_P3 -to SRAM_ADDR[10] -disable
+set_location_assignment PIN_P1 -to SRAM_ADDR[11] -disable
+set_location_assignment PIN_N3 -to SRAM_ADDR[12] -disable
+set_location_assignment PIN_N1 -to SRAM_ADDR[13] -disable
+set_location_assignment PIN_M3 -to SRAM_ADDR[14] -disable
+set_location_assignment PIN_D4 -to SRAM_ADDR[15] -disable
+set_location_assignment PIN_D2 -to SRAM_ADDR[16] -disable
+set_location_assignment PIN_C2 -to SRAM_ADDR[17] -disable
+set_location_assignment PIN_E4 -to SRAM_DATA[0] -disable
+set_location_assignment PIN_E5 -to SRAM_DATA[1] -disable
+set_location_assignment PIN_F5 -to SRAM_DATA[2] -disable
+set_location_assignment PIN_H6 -to SRAM_DATA[3] -disable
+set_location_assignment PIN_J6 -to SRAM_DATA[4] -disable
+set_location_assignment PIN_K2 -to SRAM_DATA[5] -disable
+set_location_assignment PIN_K5 -to SRAM_DATA[6] -disable
+set_location_assignment PIN_L2 -to SRAM_DATA[7] -disable
+set_location_assignment PIN_M1 -to SRAM_DATA[8] -disable
+set_location_assignment PIN_L3 -to SRAM_DATA[9] -disable
+set_location_assignment PIN_L1 -to SRAM_DATA[10] -disable
+set_location_assignment PIN_K4 -to SRAM_DATA[11] -disable
+set_location_assignment PIN_K1 -to SRAM_DATA[12] -disable
+set_location_assignment PIN_J4 -to SRAM_DATA[13] -disable
+set_location_assignment PIN_G4 -to SRAM_DATA[14] -disable
+set_location_assignment PIN_F3 -to SRAM_DATA[15] -disable
+set_location_assignment PIN_E3 -to SRAM_nOE -disable
+set_location_assignment PIN_L4 -to SRAM_nWE -disable
+set_location_assignment PIN_E2 -to SRAM_nCS -disable
+set_location_assignment PIN_T14 -to CPLD_0
+set_location_assignment PIN_R14 -to CPLD_1 -disable
+set_location_assignment PIN_J16 -to CPLD_8 -disable
+set_location_assignment PIN_T7 -to XEINT8 -disable
+set_location_assignment PIN_K6 -to STEP_nB -disable
+set_location_assignment PIN_N6 -to STEP_B -disable
+set_location_assignment PIN_P6 -to STEP_nA -disable
+set_location_assignment PIN_R6 -to STEP_A -disable
+set_location_assignment PIN_P15 -to GPJ4_0 -disable
+set_location_assignment PIN_P16 -to GPJ4_1 -disable
+set_location_assignment PIN_P14 -to GPJ4_2 -disable
+set_location_assignment PIN_N16 -to GPJ4_3 -disable
+set_location_assignment PIN_N15 -to GPJ4_4 -disable
+set_location_assignment PIN_N14 -to GPJ1_5 -disable
+set_location_assignment PIN_C14 -to XM0_ADDR[0]
+set_location_assignment PIN_C15 -to XM0_ADDR[1]
+set_location_assignment PIN_C16 -to XM0_ADDR[2]
+set_location_assignment PIN_D13 -to XM0_ADDR[3]
+set_location_assignment PIN_D14 -to XM0_ADDR[4]
+set_location_assignment PIN_D15 -to XM0_ADDR[5]
+set_location_assignment PIN_D16 -to XM0_ADDR[6]
+set_location_assignment PIN_E13 -to XM0_ADDR[7]
+set_location_assignment PIN_E14 -to XM0_ADDR[8]
+set_location_assignment PIN_E15 -to XM0_ADDR[9]
+set_location_assignment PIN_E16 -to XM0_ADDR[10]
+set_location_assignment PIN_F13 -to XM0_ADDR[11]
+set_location_assignment PIN_F14 -to XM0_ADDR[12]
+set_location_assignment PIN_F15 -to XM0_ADDR[13]
+set_location_assignment PIN_F16 -to XM0_ADDR[14]
+set_location_assignment PIN_G12 -to XM0_ADDR[15]
+set_location_assignment PIN_G13 -to XM0_ADDR[16]
+set_location_assignment PIN_G15 -to XM0_ADDR[17]
+set_location_assignment PIN_G16 -to XM0_ADDR[18]
+set_location_assignment PIN_H11 -to XM0_ADDR[19]
+set_location_assignment PIN_H12 -to XM0_ADDR[20]
+set_location_assignment PIN_N13 -to XM0_DATA[0]
+set_location_assignment PIN_N12 -to XM0_DATA[1]
+set_location_assignment PIN_M16 -to XM0_DATA[2]
+set_location_assignment PIN_M15 -to XM0_DATA[3]
+set_location_assignment PIN_M14 -to XM0_DATA[4]
+set_location_assignment PIN_M12 -to XM0_DATA[5]
+set_location_assignment PIN_L16 -to XM0_DATA[6]
+set_location_assignment PIN_L15 -to XM0_DATA[7]
+set_location_assignment PIN_L14 -to XM0_DATA[8]
+set_location_assignment PIN_L12 -to XM0_DATA[9]
+set_location_assignment PIN_K16 -to XM0_DATA[10]
+set_location_assignment PIN_K15 -to XM0_DATA[11]
+set_location_assignment PIN_K13 -to XM0_DATA[12]
+set_location_assignment PIN_J12 -to XM0_DATA[13]
+set_location_assignment PIN_J11 -to XM0_DATA[14]
+set_location_assignment PIN_H13 -to XM0_DATA[15]
+set_location_assignment PIN_C13 -to SPI_DA_CS -disable
+set_location_assignment PIN_B14 -to SPI_AD_CS -disable
+set_location_assignment PIN_B13 -to SPI_DOUT -disable
+set_location_assignment PIN_A14 -to SPI_DIN -disable
+set_location_assignment PIN_A13 -to SPI_SCLK -disable
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_ASDO_AFTER_CONFIGURATION "AS INPUT TRI-STATED"
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name MISC_FILE "D:/Documents/SM3_M3_FPGA/M3.dpf"
+set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS OFF
+set_global_assignment -name TIMEQUEST_DO_CCPP_REMOVAL OFF
+set_global_assignment -name MISC_FILE "D:/SM3_M3_FPGA/M3.dpf"
+set_global_assignment -name VERILOG_FILE FPGA_IF/counter.v
+set_global_assignment -name BDF_FILE M3.bdf
+set_global_assignment -name VERILOG_FILE FPGA_IF/seg.v
+set_global_assignment -name VERILOG_FILE FPGA_IF/logic_out.v
+set_global_assignment -name VERILOG_FILE FPGA_IF/CLK_div_gen.v
+set_global_assignment -name VERILOG_FILE FPGA_IF/data_CONT.v
+set_global_assignment -name VERILOG_FILE Host_IF/host_io.v
+set_global_assignment -name VERILOG_FILE Host_IF/host_itf.v
+set_global_assignment -name SDC_FILE M3.sdc
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

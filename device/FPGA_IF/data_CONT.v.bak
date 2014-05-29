@@ -1,0 +1,52 @@
+module data_cont (
+	CLK, V_SEL
+	H_LED_D, H_SEG_COM, H_SEG_DATA, H_DOT_CD, H_DOT_RD, H_LCD_RS, H_LCD_RW, H_LCD_E, H_LCD_D,
+	F_LED_D, F_SEG_COM, F_SEG_DATA, F_DOT_CD, F_DOT_FD, F_LCD_RS, F_LCD_RW, F_LCD_E, F_LCD_D,
+	  LED_D,   SEG_COM,   SEG_DATA,   DOT_CD,   DOT_FD,   LCD_RS,   LCD_RW,   LCD_E,   LCD_D);
+	 
+	input CLK, V_SEL;
+	
+	input [7:0] H_LED_D,    F_LED_D;
+	input [5:0] H_SEG_COM,  F_SEG_COM;
+	input [7:0] H_SEG_DATA, F_SEG_DATA;
+	input [9:0] H_DOT_CD,   F_DOT_CD;
+	input [6:0] H_DOT_RD,   F_DOT_RD;
+	input       H_LCD_RS,   F_LCD_RS;
+	input       H_LCD_RW,   F_LCD_RW;
+	input       H_LCD_E,    F_LCD_E;
+	input       H_LCD_D,    F_LCD_D;
+	
+	output reg [7:0] LED_D;
+	output reg [5:0] SEG_COM;
+	output reg [7:0] SEG_DATA;
+	output reg [9:0] DOT_CD;
+	output reg [6:0] DOT_RD;
+	output reg       LCD_RS;
+	output reg       LCD_RW;
+	output reg       LCD_E;
+	output reg       LCD_D;
+	
+	always @(*) begin
+		if (V_SEL == 1'b0) begin
+			LED_D    <= F_LED_D;
+			SEG_COM  <= F_SEG_COM;
+			SEG_DATA <= F_SEG_DATA;
+			DOT_CD   <= F_DOT_CD;
+			DOT_RD   <= F_DOT_RD;
+			LCD_RS   <= F_LCD_RS;
+			LCD_RW   <= F_LCD_RW;
+			LCD_E    <= F_LCD_E;
+			LCD_D    <= F_LCD_D;
+		end else begin
+			LED_D    <= H_LED_D;
+			SEG_COM  <= H_SEG_COM;
+			SEG_DATA <= H_SEG_DATA;
+			DOT_CD   <= H_DOT_CD;
+			DOT_RD   <= H_DOT_RD;
+			LCD_RS   <= H_LCD_RS;
+			LCD_RW   <= H_LCD_RW;
+			LCD_E    <= H_LCD_E;
+			LCD_D    <= H_LCD_D;
+		end
+	end
+endmodule

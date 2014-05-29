@@ -1,0 +1,211 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 248 272)
+	(text "host_itf" (rect 5 0 42 12)(font "Arial" ))
+	(text "inst" (rect 8 240 25 252)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk" (rect 0 0 14 12)(font "Arial" ))
+		(text "clk" (rect 21 27 35 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "nRESET" (rect 0 0 41 12)(font "Arial" ))
+		(text "nRESET" (rect 21 43 62 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "FPGA_nRST" (rect 0 0 62 12)(font "Arial" ))
+		(text "FPGA_nRST" (rect 21 59 83 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "HOST_nOE" (rect 0 0 56 12)(font "Arial" ))
+		(text "HOST_nOE" (rect 21 75 77 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 1))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "HOST_nWE" (rect 0 0 59 12)(font "Arial" ))
+		(text "HOST_nWE" (rect 21 91 80 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 1))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "HOST_nCS" (rect 0 0 56 12)(font "Arial" ))
+		(text "HOST_nCS" (rect 21 107 77 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 1))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "HOST_ADD[20..0]" (rect 0 0 90 12)(font "Arial" ))
+		(text "HOST_ADD[20..0]" (rect 21 123 111 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 3))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "HDI[15..0]" (rect 0 0 51 12)(font "Arial" ))
+		(text "HDI[15..0]" (rect 21 139 72 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 3))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "DIP_D[15..0]" (rect 0 0 64 12)(font "Arial" ))
+		(text "DIP_D[15..0]" (rect 21 155 85 167)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160)(line_width 3))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "PUSH_RD[3..0]" (rect 0 0 79 12)(font "Arial" ))
+		(text "PUSH_RD[3..0]" (rect 21 171 100 183)(font "Arial" ))
+		(line (pt 0 176)(pt 16 176)(line_width 3))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "PUSH_SW[3..0]" (rect 0 0 80 12)(font "Arial" ))
+		(text "PUSH_SW[3..0]" (rect 21 187 101 199)(font "Arial" ))
+		(line (pt 0 192)(pt 16 192)(line_width 3))
+	)
+	(port
+		(pt 0 208)
+		(input)
+		(text "clk_3k" (rect 0 0 31 12)(font "Arial" ))
+		(text "clk_3k" (rect 21 203 52 215)(font "Arial" ))
+		(line (pt 0 208)(pt 16 208)(line_width 1))
+	)
+	(port
+		(pt 0 224)
+		(input)
+		(text "sw" (rect 0 0 12 12)(font "Arial" ))
+		(text "sw" (rect 21 219 33 231)(font "Arial" ))
+		(line (pt 0 224)(pt 16 224)(line_width 1))
+	)
+	(port
+		(pt 232 32)
+		(output)
+		(text "HDO[15..0]" (rect 0 0 56 12)(font "Arial" ))
+		(text "HDO[15..0]" (rect 155 27 211 39)(font "Arial" ))
+		(line (pt 232 32)(pt 216 32)(line_width 3))
+	)
+	(port
+		(pt 232 48)
+		(output)
+		(text "CLCD_RS" (rect 0 0 51 12)(font "Arial" ))
+		(text "CLCD_RS" (rect 160 43 211 55)(font "Arial" ))
+		(line (pt 232 48)(pt 216 48)(line_width 1))
+	)
+	(port
+		(pt 232 64)
+		(output)
+		(text "CLCD_RW" (rect 0 0 55 12)(font "Arial" ))
+		(text "CLCD_RW" (rect 156 59 211 71)(font "Arial" ))
+		(line (pt 232 64)(pt 216 64)(line_width 1))
+	)
+	(port
+		(pt 232 80)
+		(output)
+		(text "CLCD_E" (rect 0 0 43 12)(font "Arial" ))
+		(text "CLCD_E" (rect 168 75 211 87)(font "Arial" ))
+		(line (pt 232 80)(pt 216 80)(line_width 1))
+	)
+	(port
+		(pt 232 96)
+		(output)
+		(text "CLCD_DQ[7..0]" (rect 0 0 79 12)(font "Arial" ))
+		(text "CLCD_DQ[7..0]" (rect 132 91 211 103)(font "Arial" ))
+		(line (pt 232 96)(pt 216 96)(line_width 3))
+	)
+	(port
+		(pt 232 112)
+		(output)
+		(text "LED_D[7..0]" (rect 0 0 61 12)(font "Arial" ))
+		(text "LED_D[7..0]" (rect 150 107 211 119)(font "Arial" ))
+		(line (pt 232 112)(pt 216 112)(line_width 3))
+	)
+	(port
+		(pt 232 128)
+		(output)
+		(text "SEG_COM[5..0]" (rect 0 0 79 12)(font "Arial" ))
+		(text "SEG_COM[5..0]" (rect 132 123 211 135)(font "Arial" ))
+		(line (pt 232 128)(pt 216 128)(line_width 3))
+	)
+	(port
+		(pt 232 144)
+		(output)
+		(text "SEG_Data[7..0]" (rect 0 0 77 12)(font "Arial" ))
+		(text "SEG_Data[7..0]" (rect 134 139 211 151)(font "Arial" ))
+		(line (pt 232 144)(pt 216 144)(line_width 3))
+	)
+	(port
+		(pt 232 160)
+		(output)
+		(text "DOT_SCAN[9..0]" (rect 0 0 84 12)(font "Arial" ))
+		(text "DOT_SCAN[9..0]" (rect 127 155 211 167)(font "Arial" ))
+		(line (pt 232 160)(pt 216 160)(line_width 3))
+	)
+	(port
+		(pt 232 176)
+		(output)
+		(text "DOT_DATA[6..0]" (rect 0 0 82 12)(font "Arial" ))
+		(text "DOT_DATA[6..0]" (rect 129 171 211 183)(font "Arial" ))
+		(line (pt 232 176)(pt 216 176)(line_width 3))
+	)
+	(port
+		(pt 232 192)
+		(output)
+		(text "Piezo" (rect 0 0 25 12)(font "Arial" ))
+		(text "Piezo" (rect 186 187 211 199)(font "Arial" ))
+		(line (pt 232 192)(pt 216 192)(line_width 1))
+	)
+	(port
+		(pt 232 208)
+		(output)
+		(text "PUSH_LD[3..0]" (rect 0 0 76 12)(font "Arial" ))
+		(text "PUSH_LD[3..0]" (rect 135 203 211 215)(font "Arial" ))
+		(line (pt 232 208)(pt 216 208)(line_width 3))
+	)
+	(port
+		(pt 232 224)
+		(output)
+		(text "host_sel" (rect 0 0 41 12)(font "Arial" ))
+		(text "host_sel" (rect 170 219 211 231)(font "Arial" ))
+		(line (pt 232 224)(pt 216 224)(line_width 1))
+	)
+	(drawing
+		(rectangle (rect 16 16 216 240)(line_width 1))
+	)
+)

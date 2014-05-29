@@ -1,0 +1,27 @@
+module seg_test (clk, nreset, seg_com, seg_disp, cnt_1, cnt_10, sec_1, sec_10, min_1, min_10, hour_1, hour_10);
+	input clk, nreset;
+	output [5:0] seg_com;
+	output [7:0] seg_disp;
+	output [7:0] cnt_1, cnt_10, sec_1, sec_10, min_1, min_10, hour_1, hour_10;
+	
+	
+	function [6:0] conv_int;
+		input [3:0] cnt;
+		begin
+			case (cnt)
+				4'd0:   conv_int = 7'b1111110;
+				4'd1:   conv_int = 7'b0110000;
+				4'd2:   conv_int = 7'b1101101;
+				4'd3:   conv_int = 7'b1111001;
+				4'd4:   conv_int = 7'b0110011;
+				4'd5:   conv_int = 7'b1011011;
+				4'd6:   conv_int = 7'b1011111;
+				4'd7:   conv_int = 7'b1110000;
+				4'd8:   conv_int = 7'b1111111;
+				4'd9:   conv_int = 7'b1111011;
+				default conv_int = 7'b0000000;
+			endcase
+		end
+	endfunction
+				
+endmodule;

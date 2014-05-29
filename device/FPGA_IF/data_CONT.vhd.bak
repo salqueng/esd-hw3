@@ -1,0 +1,107 @@
+library ieee;
+use ieee.std_logic_1164.all;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+
+ENTITY data_CONT is
+	port(
+		CLK				: IN STD_LOGIC;
+		V_SEL			: IN STD_LOGIC;
+		
+
+-----------------------------------------------------------
+-- HOST	INPUT
+-----------------------------------------------------------	
+		H_LED_D			: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+		
+		H_SEG_COM		: IN STD_LOGIC_VECTOR(5 DOWNTO 0);
+		H_SEG_DATA		: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+		
+		H_DOT_CD		: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+		H_DOT_RD		: IN STD_LOGIC_VECTOR(6 DOWNTO 0);
+		
+		H_LCD_RS		: IN STD_LOGIC;
+		H_LCD_RW		: IN STD_LOGIC;
+		H_LCD_E			: IN STD_LOGIC;
+		H_LCD_D			: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+		
+		
+		
+-----------------------------------------------------------
+-- FPGA INPUT
+-----------------------------------------------------------		
+		F_LED_D			: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+		
+		F_SEG_COM		: IN STD_LOGIC_VECTOR(5 DOWNTO 0);
+		F_SEG_DATA		: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+		
+		F_DOT_CD		: IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+		F_DOT_RD		: IN STD_LOGIC_VECTOR(6 DOWNTO 0);
+		
+		F_LCD_RS		: IN STD_LOGIC;
+		F_LCD_RW		: IN STD_LOGIC;
+		F_LCD_E			: IN STD_LOGIC;
+		F_LCD_D			: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+		
+		
+-----------------------------------------------------------
+-- OUTPUT
+-----------------------------------------------------------
+		
+		LED_D			: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		
+		SEG_COM			: OUT STD_LOGIC_VECTOR(5 DOWNTO 0);
+		SEG_DATA		: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		
+		DOT_CD			: OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
+		DOT_RD			: OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+		
+		LCD_RS			: OUT STD_LOGIC;
+		LCD_RW			: OUT STD_LOGIC;
+		LCD_E			: OUT STD_LOGIC;
+		LCD_D			: OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+		
+
+	
+		);
+end data_CONT;
+
+ARCHITECTURE HB OF data_CONT IS
+
+BEGIN
+			
+	
+	PROCESS(v_sel,F_LED_D,F_SEG_COM,F_SEG_DATA,F_DOT_CE,F_DOT_RD,F_LCD_E,F_LCD_RS,F_LCD_RW,F_LCD_D,H_LED_D,H_SEG_COM,H_SEG_DATA,H_DOT_CD,H_DOT_RD,H_LCD_E,H_LCD_RS,H_LCD_RW,H_LCD_D)
+	BEGIN
+		IF V_SEL = '0' THEN
+			LED_D			<= F_LED_D;
+			
+			SEG_COM			<= F_SEG_COM;
+			SEG_DATA		<= F_SEG_DATA;
+		
+			DOT_CD			<= F_DOT_CD;
+			DOT_RD			<= F_DOT_RD;
+		
+			LCD_E			<= F_LCD_E;
+			LCD_RS			<= F_LCD_RS;
+			LCD_RW			<= F_LCD_RW;
+			LCD_D			<= F_LCD_D;
+		
+		ELSE
+			LED_D			<= H_LED_D;
+		
+			SEG_COM			<= H_SEG_COM;
+			SEG_DATA		<= H_SEG_DATA;
+		
+			DOT_CD			<= H_DOT_CD;
+			DOT_RD			<= H_DOT_RD;
+		
+			LCD_E			<= H_LCD_E;
+			LCD_RS			<= H_LCD_RS;
+			LCD_RW			<= H_LCD_RW;
+			LCD_D			<= H_LCD_D;
+		END IF;
+	END PROCESS;
+	
+			
+END HB;
