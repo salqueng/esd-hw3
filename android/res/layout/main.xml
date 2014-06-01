@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+	<TextView android:id="@+id/segment" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="7Segment Control"
+		android:textSize="30sp" android:textStyle="bold" android:layout_x="15px"
+		android:layout_y="15px"></TextView>
+	<TextView android:text="Counter value" android:textStyle="bold"
+		android:id="@+id/segment" android:textSize="20sp"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_x="9dp" android:layout_y="80dp"></TextView>
+
+	<!-- segment value text -->
+	<EditText android:textSize="18sp" android:maxLines="1"
+		android:textStyle="bold" android:id="@+id/segVal"
+		android:layout_width="300px" android:maxLength="6" android:text="100000"
+		android:layout_height="wrap_content" android:layout_x="20dp"
+		android:layout_y="107dp"></EditText>
+
+	<!-- segment value set button -->
+	<Button android:textSize="18sp" android:text="Set"
+		android:layout_width="120px" android:id="@+id/segSet"
+		android:layout_height="wrap_content" android:layout_x="225dp"
+		android:layout_y="107dp"></Button>
+
+	<!-- start counter button -->
+	<Button android:textSize="18sp" android:text="Start"
+		android:layout_width="125px" android:id="@+id/cntStart"
+		android:layout_height="wrap_content" android:layout_x="20dp"
+		android:layout_y="157dp"></Button>
+
+	<!-- stop counter button -->
+	<Button android:textSize="18sp" android:text="Stop"
+		android:layout_width="120px" android:id="@+id/cntStop"
+		android:layout_height="wrap_content" android:layout_x="116dp"
+		android:layout_y="157dp"></Button>
+
+	<!-- segment off button -->
+	<Button android:textSize="18sp" android:text="Off"
+		android:layout_width="120px" android:id="@+id/segOff"
+		android:layout_height="wrap_content" android:layout_x="212dp"
+		android:layout_y="157dp"></Button>
+
+	<!-- flagView -->
+	<TextView android:text="flagView" android:layout_width="wrap_content"
+		android:id="@+id/flagView" android:layout_height="wrap_content"
+		android:textSize="30sp" android:textStyle="bold" android:layout_x="92dp"
+		android:layout_y="290dp"></TextView>
+</AbsoluteLayout>
