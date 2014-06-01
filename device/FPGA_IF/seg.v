@@ -1,6 +1,6 @@
 module seg_demo (clk, nreset, counter_data, seg_com, seg_disp);
 	input clk, nreset;
-	input [15:0] counter_data;
+	input [31:0] counter_data;
 	output reg [5:0] seg_com;
 	output reg [7:0] seg_disp;
 	

@@ -1,27 +1,24 @@
-module counter_demo (clk_1Hz, nreset,data_from_android,nSET,nSTART,clk_1KHz,data_to_seg_demo);
-	input clk_1Hz, nreset, data_from_android,clk_1KHz;
-	input nSET,nSTART;
-	output [15:0] data_to_seg_demo;
+module counter_demo (clk_1KHz, nreset, SET, START, data_input, data_output);
+	input clk_1KHz, nreset;
+	input SET, START;
+	input [31:0] data_input;
+	output [31:0] data_output;
+		
+	assign data_output = data;
+	reg[31:0] data;
 	
-	assign data_to_seg_demo = data;
-	
-	reg[15:0] data_input = 16'hf;
-	reg[15:0] data_set;
-	reg[15:0] data;
-	
-	reg start_flag;
 	integer cnt_1000;
 
 	always @(posedge clk_1KHz or negedge nreset) begin
 		if(nreset == 1'b0) begin
-			data <= 16'b0;
+			data <= 32'b0;
 			cnt_1000 <= 0;
-		end else if(nSET==1'b0) begin
+		end else if(SET == 1'b1) begin
 			data <= data_input;
-			cnt_1000 <=0;
+			cnt_1000 <= 0;
 		end else begin
-			if(data != 16'b0) begin	
-				if(start_flag ==1'b1) begin
+			if(data != 32'b0) begin	
+				if(START == 1'b1) begin
 					if(cnt_1000==999) begin
 						data <= data-1;
 						cnt_1000 <= 0;
@@ -33,17 +30,5 @@ module counter_demo (clk_1Hz, nreset,data_from_android,nSET,nSTART,clk_1KHz,data
 				end
 			end
 		end
-	end
-	
-	always @(negedge nreset or negedge nSTART) begin
-			if(nreset == 1'b0) begin
-				start_flag <= 1'b0; 
-			end else if(start_flag==1'b0)begin
-				start_flag <= 1'b1;
-			end else begin
-				start_flag <= 1'b0;
-			end
-	end
-	
-	
+	end	
 endmodule

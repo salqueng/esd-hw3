@@ -1,5 +1,6 @@
 module host_itf (
 	clk, nRESET, FPGA_nRST, HOST_nOE, HOST_nWE, HOST_nCS, HOST_ADD, HDI, HDO,
+	COUNTER_SET, COUNTER_START, COUNTER_DATA_INPUT, COUNTER_DATA_OUTPUT,
 	CLCD_RS, CLCD_RW, CLCD_E, CLCD_DQ, LED_D, SEG_COM, SEG_DATA, DOT_SCAN, DOT_DATA,
 	Piezo, DIP_D, PUSH_RD, PUSH_LD, PUSH_SW,
 	clk_3k, host_sel, sw);
@@ -8,6 +9,11 @@ module host_itf (
 	input [20:0] HOST_ADD;
 	input [15:0] HDI;
 	output reg [15:0] HDO;
+	
+	input [31:0] COUNTER_DATA_OUTPUT;
+	output [31:0] COUNTER_DATA_INPUT;
+	output COUNTER_SET, COUNTER_START;
+	
 	
 	output CLCD_RS, CLCD_RW, CLCD_E;
 	output [7:0] CLCD_DQ;
@@ -26,6 +32,10 @@ module host_itf (
 	output host_sel;
 	
 	reg [15:0] x8800_0010, x8800_0020, x8800_0030, x8800_0032, x8800_0040, x8800_0042, x8800_0050, x8800_0072, x8800_0090, x8800_00A0, x8800_00A2, x8800_00B0, x8800_00C0, x8800_00D0, x8800_00E0, x8800_00F0;
+	
+	reg [15:0] x8800_0034, x8800_0054, x8800_0056;
+	wire [15:0] x8800_0058, x8800_005A;
+	
 	wire [15:0] x8800_0062, x8800_0070, x8800_0080, x8800_0092;
 	reg [1:0] reg_sw;
 	reg V_SEL;
@@ -40,6 +50,9 @@ module host_itf (
 			x8800_0040 <= 16'b0;
 			x8800_0042 <= 16'b0;
 			x8800_0050 <= 16'b0;
+			x8800_0034 <= 16'b0;
+			x8800_0054 <= 16'b0;
+			x8800_0056 <= 16'b0;
 			x8800_0072 <= 16'b0;
 			x8800_0090 <= 16'b0;
 			x8800_00A0 <= 16'b0;
@@ -58,6 +71,9 @@ module host_itf (
 					20'h00040: x8800_0040 <= HDI;
 					20'h00042: x8800_0042 <= HDI;
 					20'h00050: x8800_0050 <= HDI;
+					20'h00034: x8800_0034 <= HDI;
+					20'h00054: x8800_0054 <= HDI;
+					20'h00056: x8800_0056 <= HDI;
 					20'h00072: x8800_0072 <= HDI;
 					20'h000A0: x8800_00A0 <= HDI;
 					20'h000B0: x8800_00B0 <= HDI;
@@ -86,6 +102,11 @@ module host_itf (
 					20'h00040: HDO <= x8800_0040;
 					20'h00042: HDO <= x8800_0042;
 					20'h00050: HDO <= x8800_0050;
+					20'h00034: HDO <= x8800_0034;
+					20'h00054: HDO <= x8800_0054;
+					20'h00056: HDO <= x8800_0056;
+					20'h00058: HDO <= x8800_0058;
+					20'h0005A: HDO <= x8800_005A;
 					20'h00062: HDO <= x8800_0062;
 					20'h00070: HDO <= x8800_0070;
 					20'h00072: HDO <= x8800_0072;
@@ -126,6 +147,12 @@ module host_itf (
 	assign x8800_0092 = (nRESET == 1'b1) ? {10'b0, 6'b101010} : 16'b0;
 	
 	assign host_sel = x8800_00F0[0];
+	
+	assign COUNTER_SET = (x8800_0034[0] == 1'b1) ? 1'b1 : 1'b0;
+	assign COUNTER_START = x8800_0034[8];
+	assign COUNTER_DATA_INPUT = {x8800_0056, x8800_0054};
+	assign x8800_0058 = COUNTER_DATA_OUTPUT[31:16];
+	assign x8800_005A = COUNTER_DATA_OUTPUT[15:0];
 	
 	always @(posedge clk_3k or negedge nRESET) begin
 		if (nRESET == 1'b0) begin
