@@ -37,14 +37,10 @@
 		android:layout_y="157dp"></Button>
 
 	<!-- segment off button -->
-	<Button android:textSize="18sp" android:text="Off"
-		android:layout_width="120px" android:id="@+id/segOff"
-		android:layout_height="wrap_content" android:layout_x="212dp"
-		android:layout_y="157dp"></Button>
 
 	<!-- flagView -->
-	<TextView android:text="flagView" android:layout_width="wrap_content"
+	<TextView android:text="counter value" android:layout_width="wrap_content"
 		android:id="@+id/flagView" android:layout_height="wrap_content"
-		android:textSize="30sp" android:textStyle="bold" android:layout_x="92dp"
+		android:textSize="20sp" android:textStyle="bold" android:layout_x="20dp"
 		android:layout_y="290dp"></TextView>
 </AbsoluteLayout>

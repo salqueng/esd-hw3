@@ -76,8 +76,8 @@ seg_com[3]                   : A9        : output : 3.3-V LVTTL       :         
 lcd_data[5]                  : A10       : output : 3.3-V LVTTL       :         : 2         : Y              
 lcd_data[0]                  : A11       : output : 3.3-V LVTTL       :         : 2         : Y              
 lcd_rs                       : A12       : output : 3.3-V LVTTL       :         : 2         : Y              
-SRAM_DATA[15]                : A13       : bidir  : 3.3-V LVTTL       :         : 2         : N              
-SRAM_ADDR[10]                : A14       : output : 3.3-V LVTTL       :         : 2         : N              
+SRAM_ADDR[15]                : A13       : output : 3.3-V LVTTL       :         : 2         : N              
+SRAM_ADDR[9]                 : A14       : output : 3.3-V LVTTL       :         : 2         : N              
 VCCIO2                       : A15       : power  :                   : 3.3V    : 2         :                
 GND                          : A16       : gnd    :                   :         :           :                
 VCCIO1                       : B1        : power  :                   : 3.3V    : 1         :                
@@ -92,12 +92,12 @@ seg_disp[6]                  : B9        : output : 3.3-V LVTTL       :         
 lcd_data[6]                  : B10       : output : 3.3-V LVTTL       :         : 2         : Y              
 lcd_data[1]                  : B11       : output : 3.3-V LVTTL       :         : 2         : Y              
 lcd_rw                       : B12       : output : 3.3-V LVTTL       :         : 2         : Y              
-SPI_SCLK                     : B13       : input  : 3.3-V LVTTL       :         : 2         : N              
-SRAM_DATA[9]                 : B14       : bidir  : 3.3-V LVTTL       :         : 2         : N              
+GPJ4_2                       : B13       : input  : 3.3-V LVTTL       :         : 2         : N              
+SRAM_ADDR[0]                 : B14       : output : 3.3-V LVTTL       :         : 2         : N              
 GND                          : B15       : gnd    :                   :         :           :                
 VCCIO3                       : B16       : power  :                   : 3.3V    : 3         :                
-GPJ4_0                       : C1        : input  : 3.3-V LVTTL       :         : 1         : N              
-SRAM_DATA[6]                 : C2        : bidir  : 3.3-V LVTTL       :         : 1         : N              
+SRAM_ADDR[7]                 : C1        : output : 3.3-V LVTTL       :         : 1         : N              
+SRAM_ADDR[13]                : C2        : output : 3.3-V LVTTL       :         : 1         : N              
 ~ASDO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : C3        : input  : 3.3-V LVTTL       :         : 1         : N              
 dot_scan[0]                  : C4        : output : 3.3-V LVTTL       :         : 2         : Y              
 dot_scan[7]                  : C5        : output : 3.3-V LVTTL       :         : 2         : Y              
@@ -108,15 +108,15 @@ GND                          : C9        : gnd    :                   :         
 VCCIO2                       : C10       : power  :                   : 3.3V    : 2         :                
 lcd_data[2]                  : C11       : output : 3.3-V LVTTL       :         : 2         : Y              
 lcd_e                        : C12       : output : 3.3-V LVTTL       :         : 2         : Y              
-SPI_DIN                      : C13       : input  : 3.3-V LVTTL       :         : 2         : N              
+SRAM_DATA[6]                 : C13       : bidir  : 3.3-V LVTTL       :         : 2         : N              
 XM0_ADDR[0]                  : C14       : input  : 3.3-V LVTTL       :         : 3         : Y              
 XM0_ADDR[1]                  : C15       : input  : 3.3-V LVTTL       :         : 3         : Y              
 XM0_ADDR[2]                  : C16       : input  : 3.3-V LVTTL       :         : 3         : Y              
-GPJ1_5                       : D1        : input  : 3.3-V LVTTL       :         : 1         : N              
-SRAM_DATA[11]                : D2        : bidir  : 3.3-V LVTTL       :         : 1         : N              
+SRAM_DATA[12]                : D1        : bidir  : 3.3-V LVTTL       :         : 1         : N              
+SRAM_ADDR[17]                : D2        : output : 3.3-V LVTTL       :         : 1         : N              
 SRAM_ADDR[3]                 : D3        : output : 3.3-V LVTTL       :         : 1         : N              
-SRAM_ADDR[5]                 : D4        : output : 3.3-V LVTTL       :         : 1         : N              
-GPJ4_3                       : D5        : input  : 3.3-V LVTTL       :         : 1         : N              
+GPJ4_1                       : D4        : input  : 3.3-V LVTTL       :         : 1         : N              
+SRAM_DATA[0]                 : D5        : bidir  : 3.3-V LVTTL       :         : 1         : N              
 led[4]                       : D6        : output : 3.3-V LVTTL       :         : 2         : Y              
 seg_disp[3]                  : D7        : output : 3.3-V LVTTL       :         : 2         : Y              
 seg_disp[0]                  : D8        : output : 3.3-V LVTTL       :         : 2         : Y              
@@ -128,11 +128,11 @@ XM0_ADDR[3]                  : D13       : input  : 3.3-V LVTTL       :         
 XM0_ADDR[4]                  : D14       : input  : 3.3-V LVTTL       :         : 3         : Y              
 XM0_ADDR[5]                  : D15       : input  : 3.3-V LVTTL       :         : 3         : Y              
 XM0_ADDR[6]                  : D16       : input  : 3.3-V LVTTL       :         : 3         : Y              
-SRAM_ADDR[17]                : E1        : output : 3.3-V LVTTL       :         : 1         : N              
-SRAM_DATA[7]                 : E2        : bidir  : 3.3-V LVTTL       :         : 1         : N              
-SRAM_DATA[0]                 : E3        : bidir  : 3.3-V LVTTL       :         : 1         : N              
-SRAM_ADDR[8]                 : E4        : output : 3.3-V LVTTL       :         : 1         : N              
-STEP_nB                      : E5        : input  : 3.3-V LVTTL       :         : 1         : N              
+CPLD_1                       : E1        : input  : 3.3-V LVTTL       :         : 1         : N              
+SRAM_DATA[5]                 : E2        : bidir  : 3.3-V LVTTL       :         : 1         : N              
+SRAM_ADDR[8]                 : E3        : output : 3.3-V LVTTL       :         : 1         : N              
+STEP_A                       : E4        : input  : 3.3-V LVTTL       :         : 1         : N              
+SRAM_ADDR[12]                : E5        : output : 3.3-V LVTTL       :         : 1         : N              
 led[5]                       : E6        : output : 3.3-V LVTTL       :         : 2         : Y              
 VCCIO2                       : E7        : power  :                   : 3.3V    : 2         :                
 GND                          : E8        : gnd    :                   :         :           :                
@@ -146,7 +146,7 @@ XM0_ADDR[9]                  : E15       : input  : 3.3-V LVTTL       :         
 XM0_ADDR[10]                 : E16       : input  : 3.3-V LVTTL       :         : 3         : Y              
 DATA0                        : F1        : input  :                   :         : 1         :                
 TCK                          : F2        : input  :                   :         : 1         :                
-SRAM_ADDR[14]                : F3        : output : 3.3-V LVTTL       :         : 1         : N              
+SRAM_ADDR[4]                 : F3        : output : 3.3-V LVTTL       :         : 1         : N              
 ~nCSO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : F4        : input  : 3.3-V LVTTL       :         : 1         : N              
 SRAM_nOE                     : F5        : output : 3.3-V LVTTL       :         : 1         : N              
 led[6]                       : F6        : output : 3.3-V LVTTL       :         : 2         : Y              
@@ -163,7 +163,7 @@ XM0_ADDR[14]                 : F16       : input  : 3.3-V LVTTL       :         
 TMS                          : G1        : input  :                   :         : 1         :                
 TDO                          : G2        : output :                   :         : 1         :                
 VCCIO1                       : G3        : power  :                   : 3.3V    : 1         :                
-SRAM_ADDR[9]                 : G4        : output : 3.3-V LVTTL       :         : 1         : N              
+CPLD_8                       : G4        : input  : 3.3-V LVTTL       :         : 1         : N              
 nCE                          : G5        :        :                   :         : 1         :                
 led[7]                       : G6        : output : 3.3-V LVTTL       :         : 2         : Y              
 led[0]                       : G7        : output : 3.3-V LVTTL       :         : 2         : Y              
@@ -181,7 +181,7 @@ FPGA_CLK                     : H2        : input  : 3.3-V LVTTL       :         
 GND                          : H3        : gnd    :                   :         :           :                
 DCLK                         : H4        :        :                   :         : 1         :                
 TDI                          : H5        : input  :                   :         : 1         :                
-SRAM_DATA[3]                 : H6        : bidir  : 3.3-V LVTTL       :         : 1         : N              
+SRAM_nCS                     : H6        : output : 3.3-V LVTTL       :         : 1         : N              
 VCCINT                       : H7        : power  :                   : 1.2V    :           :                
 GND                          : H8        : gnd    :                   :         :           :                
 GND                          : H9        : gnd    :                   :         :           :                
@@ -195,9 +195,9 @@ XM0WEN                       : H16       : input  : 3.3-V LVTTL       :         
 GND+                         : J1        :        :                   :         : 1         :                
 SPI_AD_CS                    : J2        : input  : 3.3-V LVTTL       :         : 1         : N              
 GND                          : J3        : gnd    :                   :         :           :                
-SRAM_DATA[8]                 : J4        : bidir  : 3.3-V LVTTL       :         : 1         : N              
+GPJ4_4                       : J4        : input  : 3.3-V LVTTL       :         : 1         : N              
 nCONFIG                      : J5        :        :                   :         : 1         :                
-SRAM_DATA[14]                : J6        : bidir  : 3.3-V LVTTL       :         : 1         : N              
+SRAM_DATA[3]                 : J6        : bidir  : 3.3-V LVTTL       :         : 1         : N              
 VCCINT                       : J7        : power  :                   : 1.2V    :           :                
 GND                          : J8        : gnd    :                   :         :           :                
 GND                          : J9        : gnd    :                   :         :           :                
@@ -208,12 +208,12 @@ MSEL0                        : J13       :        :                   :         
 GND                          : J14       : gnd    :                   :         :           :                
 XM0OEN                       : J15       : input  : 3.3-V LVTTL       :         : 3         : Y              
 STEP_nA                      : J16       : input  : 3.3-V LVTTL       :         : 3         : N              
-XEINT8                       : K1        : input  : 3.3-V LVTTL       :         : 1         : N              
-SRAM_DATA[13]                : K2        : bidir  : 3.3-V LVTTL       :         : 1         : N              
+M_nRESET                     : K1        : input  : 3.3-V LVTTL       :         : 1         : N              
+SRAM_ADDR[1]                 : K2        : output : 3.3-V LVTTL       :         : 1         : N              
 VCCIO1                       : K3        : power  :                   : 3.3V    : 1         :                
-SRAM_DATA[10]                : K4        : bidir  : 3.3-V LVTTL       :         : 1         : N              
-SRAM_ADDR[4]                 : K5        : output : 3.3-V LVTTL       :         : 1         : N              
-SRAM_ADDR[0]                 : K6        : output : 3.3-V LVTTL       :         : 4         : N              
+SRAM_DATA[14]                : K4        : bidir  : 3.3-V LVTTL       :         : 1         : N              
+SRAM_ADDR[14]                : K5        : output : 3.3-V LVTTL       :         : 1         : N              
+SRAM_ADDR[10]                : K6        : output : 3.3-V LVTTL       :         : 4         : N              
 dip_sw[1]                    : K7        : input  : 3.3-V LVTTL       :         : 4         : Y              
 VCCINT                       : K8        : power  :                   : 1.2V    :           :                
 GND                          : K9        : gnd    :                   :         :           :                
@@ -224,10 +224,10 @@ XM0_DATA[12]                 : K13       : bidir  : 3.3-V LVTTL       :         
 VCCIO3                       : K14       : power  :                   : 3.3V    : 3         :                
 XM0_DATA[11]                 : K15       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
 XM0_DATA[10]                 : K16       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
-GPJ4_4                       : L1        : input  : 3.3-V LVTTL       :         : 1         : N              
-SRAM_ADDR[13]                : L2        : output : 3.3-V LVTTL       :         : 1         : N              
-SRAM_ADDR[2]                 : L3        : output : 3.3-V LVTTL       :         : 1         : N              
-STEP_A                       : L4        : input  : 3.3-V LVTTL       :         : 1         : N              
+SRAM_ADDR[11]                : L1        : output : 3.3-V LVTTL       :         : 1         : N              
+SPI_SCLK                     : L2        : input  : 3.3-V LVTTL       :         : 1         : N              
+XCLKOUT                      : L3        : input  : 3.3-V LVTTL       :         : 1         : N              
+SRAM_ADDR[2]                 : L4        : output : 3.3-V LVTTL       :         : 1         : N              
 GND_PLL1                     : L5        : gnd    :                   :         :           :                
 VCCD_PLL1                    : L6        : power  :                   : 1.2V    :           :                
 dip_sw[0]                    : L7        : input  : 3.3-V LVTTL       :         : 4         : Y              
@@ -240,10 +240,10 @@ CONF_DONE                    : L13       :        :                   :         
 XM0_DATA[8]                  : L14       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
 XM0_DATA[7]                  : L15       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
 XM0_DATA[6]                  : L16       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
-SRAM_ADDR[7]                 : M1        : output : 3.3-V LVTTL       :         : 1         : N              
-CPLD_1                       : M2        : input  : 3.3-V LVTTL       :         : 1         : N              
-SRAM_DATA[1]                 : M3        : bidir  : 3.3-V LVTTL       :         : 1         : N              
-SRAM_DATA[2]                 : M4        : bidir  : 3.3-V LVTTL       :         : 1         : N              
+SRAM_DATA[13]                : M1        : bidir  : 3.3-V LVTTL       :         : 1         : N              
+SRAM_nWE                     : M2        : output : 3.3-V LVTTL       :         : 1         : N              
+XEINT8                       : M3        : input  : 3.3-V LVTTL       :         : 1         : N              
+SRAM_DATA[9]                 : M4        : bidir  : 3.3-V LVTTL       :         : 1         : N              
 VCCA_PLL1                    : M5        : power  :                   : 1.2V    :           :                
 GNDA_PLL1                    : M6        : gnd    :                   :         :           :                
 VCCIO4                       : M7        : power  :                   : 3.3V    : 4         :                
@@ -256,12 +256,12 @@ nSTATUS                      : M13       :        :                   :         
 XM0_DATA[4]                  : M14       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
 XM0_DATA[3]                  : M15       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
 XM0_DATA[2]                  : M16       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
-M_nRESET                     : N1        : input  : 3.3-V LVTTL       :         : 1         : N              
-SRAM_DATA[5]                 : N2        : bidir  : 3.3-V LVTTL       :         : 1         : N              
-XCLKOUT                      : N3        : input  : 3.3-V LVTTL       :         : 1         : N              
-CPLD_8                       : N4        : input  : 3.3-V LVTTL       :         : 1         : N              
+SRAM_DATA[1]                 : N1        : bidir  : 3.3-V LVTTL       :         : 1         : N              
+SPI_DOUT                     : N2        : input  : 3.3-V LVTTL       :         : 1         : N              
+SRAM_ADDR[5]                 : N3        : output : 3.3-V LVTTL       :         : 1         : N              
+SRAM_DATA[2]                 : N4        : bidir  : 3.3-V LVTTL       :         : 1         : N              
 GND_PLL1                     : N5        : gnd    :                   :         :           :                
-SRAM_ADDR[15]                : N6        : output : 3.3-V LVTTL       :         : 4         : N              
+SRAM_DATA[8]                 : N6        : bidir  : 3.3-V LVTTL       :         : 4         : N              
 piezo                        : N7        : output : 3.3-V LVTTL       :         : 4         : Y              
 dip_sw[4]                    : N8        : input  : 3.3-V LVTTL       :         : 4         : Y              
 dip_sw[8]                    : N9        : input  : 3.3-V LVTTL       :         : 4         : Y              
@@ -269,15 +269,15 @@ dip_sw[12]                   : N10       : input  : 3.3-V LVTTL       :         
 key_scan[2]                  : N11       : output : 3.3-V LVTTL       :         : 4         : Y              
 XM0_DATA[1]                  : N12       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
 XM0_DATA[0]                  : N13       : bidir  : 3.3-V LVTTL       :         : 3         : Y              
-SRAM_DATA[12]                : N14       : bidir  : 3.3-V LVTTL       :         : 3         : N              
-SRAM_ADDR[12]                : N15       : output : 3.3-V LVTTL       :         : 3         : N              
-SRAM_ADDR[1]                 : N16       : output : 3.3-V LVTTL       :         : 3         : N              
-SRAM_ADDR[11]                : P1        : output : 3.3-V LVTTL       :         : 1         : N              
-SRAM_DATA[4]                 : P2        : bidir  : 3.3-V LVTTL       :         : 1         : N              
-GPJ4_2                       : P3        : input  : 3.3-V LVTTL       :         : 1         : N              
+SPI_DIN                      : N14       : input  : 3.3-V LVTTL       :         : 3         : N              
+SRAM_DATA[15]                : N15       : bidir  : 3.3-V LVTTL       :         : 3         : N              
+SRAM_DATA[11]                : N16       : bidir  : 3.3-V LVTTL       :         : 3         : N              
+GPJ1_5                       : P1        : input  : 3.3-V LVTTL       :         : 1         : N              
+STEP_nB                      : P2        : input  : 3.3-V LVTTL       :         : 1         : N              
+GPJ4_0                       : P3        : input  : 3.3-V LVTTL       :         : 1         : N              
 dot_d[2]                     : P4        : output : 3.3-V LVTTL       :         : 4         : Y              
 dot_d[5]                     : P5        : output : 3.3-V LVTTL       :         : 4         : Y              
-SPI_DOUT                     : P6        : input  : 3.3-V LVTTL       :         : 4         : N              
+SRAM_DATA[7]                 : P6        : bidir  : 3.3-V LVTTL       :         : 4         : N              
 VCCIO4                       : P7        : power  :                   : 3.3V    : 4         :                
 GND                          : P8        : gnd    :                   :         :           :                
 GND                          : P9        : gnd    :                   :         :           :                
@@ -285,15 +285,15 @@ VCCIO4                       : P10       : power  :                   : 3.3V    
 key_scan[1]                  : P11       : output : 3.3-V LVTTL       :         : 4         : Y              
 sel_button[0]                : P12       : input  : 3.3-V LVTTL       :         : 4         : Y              
 sel_button[3]                : P13       : input  : 3.3-V LVTTL       :         : 4         : Y              
-SRAM_ADDR[6]                 : P14       : output : 3.3-V LVTTL       :         : 3         : N              
-SRAM_nWE                     : P15       : output : 3.3-V LVTTL       :         : 3         : N              
-SRAM_ADDR[16]                : P16       : output : 3.3-V LVTTL       :         : 3         : N              
+SRAM_ADDR[16]                : P14       : output : 3.3-V LVTTL       :         : 3         : N              
+SRAM_DATA[4]                 : P15       : bidir  : 3.3-V LVTTL       :         : 3         : N              
+SRAM_DATA[10]                : P16       : bidir  : 3.3-V LVTTL       :         : 3         : N              
 VCCIO1                       : R1        : power  :                   : 3.3V    : 1         :                
 GND                          : R2        : gnd    :                   :         :           :                
 dot_scan[4]                  : R3        : output : 3.3-V LVTTL       :         : 4         : Y              
 dot_d[1]                     : R4        : output : 3.3-V LVTTL       :         : 4         : Y              
 dot_d[4]                     : R5        : output : 3.3-V LVTTL       :         : 4         : Y              
-STEP_B                       : R6        : input  : 3.3-V LVTTL       :         : 4         : N              
+SRAM_ADDR[6]                 : R6        : output : 3.3-V LVTTL       :         : 4         : N              
 nFPGA_RESET                  : R7        : input  : 3.3-V LVTTL       :         : 4         : Y              
 dip_sw[3]                    : R8        : input  : 3.3-V LVTTL       :         : 4         : Y              
 dip_sw[7]                    : R9        : input  : 3.3-V LVTTL       :         : 4         : Y              
@@ -301,7 +301,7 @@ dip_sw[11]                   : R10       : input  : 3.3-V LVTTL       :         
 key_scan[0]                  : R11       : output : 3.3-V LVTTL       :         : 4         : Y              
 key_data[3]                  : R12       : input  : 3.3-V LVTTL       :         : 4         : Y              
 sel_button[2]                : R13       : input  : 3.3-V LVTTL       :         : 4         : Y              
-GPJ4_1                       : R14       : input  : 3.3-V LVTTL       :         : 4         : N              
+GPJ4_3                       : R14       : input  : 3.3-V LVTTL       :         : 4         : N              
 GND                          : R15       : gnd    :                   :         :           :                
 VCCIO3                       : R16       : power  :                   : 3.3V    : 3         :                
 GND                          : T1        : gnd    :                   :         :           :                
@@ -310,7 +310,7 @@ dot_scan[3]                  : T3        : output : 3.3-V LVTTL       :         
 dot_d[0]                     : T4        : output : 3.3-V LVTTL       :         : 4         : Y              
 dot_d[3]                     : T5        : output : 3.3-V LVTTL       :         : 4         : Y              
 dot_d[6]                     : T6        : output : 3.3-V LVTTL       :         : 4         : Y              
-SRAM_nCS                     : T7        : output : 3.3-V LVTTL       :         : 4         : N              
+STEP_B                       : T7        : input  : 3.3-V LVTTL       :         : 4         : N              
 dip_sw[2]                    : T8        : input  : 3.3-V LVTTL       :         : 4         : Y              
 dip_sw[6]                    : T9        : input  : 3.3-V LVTTL       :         : 4         : Y              
 dip_sw[10]                   : T10       : input  : 3.3-V LVTTL       :         : 4         : Y              
