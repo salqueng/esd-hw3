@@ -20,25 +20,32 @@
 #define SEGCOUNTER_MODULE_VERSION "SEGMENT COUNTER v0.1"
 
 #define COUNTER_ADDRESS_DATA_INPUT 0x88000054
-#define COUNTER_ADDRESS_DATA_OUTPUT 0x8800058
-#define COUNTER_ADDRESS_DATA_RANGE 0x100
+#define COUNTER_ADDRESS_DATA_OUTPUT 0x8800F000
+#define COUNTER_ADDRESS_DATA_RANGE 0x1000
 
-#define COUNTER_ADDRESS_START 0x88000035
-#define COUNTER_ADDRESS_START_RANGE 0x1
+#define COUNTER_ADDRESS_START 0x88000036
+#define COUNTER_ADDRESS_START_RANGE 0x10
 
 #define COUNTER_ADDRESS_SET 0x88000034
-#define COUNTER_ADDRESS_SET_RANGE 0x1
+#define COUNTER_ADDRESS_SET_RANGE 0x10
 
-#define MODE_0_COUNTER_STOP 0x0
-#define MODE_1_COUNTER_START 0x1
-#define MODE_2_COUNTER_SET_DISABLE 0x2
-#define MODE_3_COUNTER_SET_ENABLE 0x3
+#define MODE_0_COUNTER_STOP 0x100
+#define MODE_1_COUNTER_START 0x101
+#define MODE_2_COUNTER_SET_DISABLE 0x102
+#define MODE_3_COUNTER_SET_ENABLE 0x103
 
 static unsigned int segcounter_usage = 0;
 static unsigned int *counter_data_input;
 static unsigned int *counter_data_output;
-static unsigned char *counter_start;
-static unsigned char *counter_set;
+static unsigned short *counter_start;
+static unsigned short *counter_set;
+
+void print_current_status(void) {
+    printk("driver: %s OUTPUT: %d\n", SEGCOUNTER_NAME, *counter_data_output);
+    printk("driver: %s INPUT: %d\n", SEGCOUNTER_NAME, *counter_data_input);
+    printk("driver: %s SET: %d\n", SEGCOUNTER_NAME, *counter_set);
+    printk("driver: %s START: %d\n", SEGCOUNTER_NAME, *counter_start);
+}
 
 int segcounter_open(struct inode *inode, struct file *flip) {
     if (segcounter_usage !=0) return -EBUSY;
@@ -79,8 +86,9 @@ int segcounter_release(struct inode *inode, struct file *flip) {
     return 0;
 }
 
-ssize_t segcounter_read(struct file *inode, const char *gdata, size_t length, loff_t *off_what) {
+ssize_t segcounter_read(struct file *inode, char *gdata, size_t length, loff_t *off_what) {
     int ret;
+
     ret = copy_to_user(gdata, counter_data_output, 4);
     if (ret < 0) {
         return -1;
@@ -104,22 +112,20 @@ static int segcounter_ioctl(struct inode *inode, struct file *flip, unsigned int
     printk("What the fuck cmd: %d\n", cmd);
     switch (cmd) {
     case MODE_0_COUNTER_STOP:
-        *counter_start = 0x00;
+        *counter_start = 0x0000;
         break;
     case MODE_1_COUNTER_START:
-        *counter_start = 0x01;
+        *counter_start = 0x0001;
         break;
     case MODE_2_COUNTER_SET_DISABLE:
-        *counter_set = 0x00;
+        *counter_set = 0x0000;
         break;
     case MODE_3_COUNTER_SET_ENABLE:
-        *counter_set = 0x01;
+        *counter_set = 0x0001;
         break;
     default:
         return -EINVAL;
     }
-    *counter_data_input = *counter_data_input + 1;
-    mdelay(100);
     print_current_status();
     return 0;
 }
@@ -152,13 +158,6 @@ int segcounter_exit(void) {
     printk("driver: %s DRIVER EXIT\n", SEGCOUNTER_NAME);
 
     return 0;
-}
-
-void print_current_status(void) {
-    printk("driver: %s OUTPUT: %d\n", SEGCOUNTER_NAME, *counter_data_output);
-    printk("driver: %s INPUT: %d\n", SEGCOUNTER_NAME, *counter_data_input);
-    printk("driver: %s SET: %d\n", SEGCOUNTER_NAME, *counter_set);
-    printk("driver: %s START: %d\n", SEGCOUNTER_NAME, *counter_start);
 }
 
 module_init(segcounter_init);
