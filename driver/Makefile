@@ -1,5 +1,5 @@
 CC = /usr/local/arm/arm-2010q1/bin/arm-none-eabi-gcc
-obj-m := segment.o
+obj-m := segcounter.o
 KDIR := /Android/linux-2.6.32-hanback
 PWD := $(shell pwd)
 
